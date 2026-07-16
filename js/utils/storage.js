@@ -71,7 +71,13 @@ const restoreStateFromStorage = () => {
       return;
     }
 
-    if (parsed.participant) {
+    // Do not restore if the saved data belongs to a completed checkout session
+    if ((parsed.order && parsed.order.status && parsed.order.status !== STATUS_DRAFT) || parsed.currentStep === STEP_SUCCESS) {
+      localStorage.removeItem(STORAGE_KEY);
+      return;
+    }
+
+    if (parsed.participant && typeof parsed.participant === 'object') {
       appState.participant = { ...appState.participant, ...parsed.participant };
       if (!appState.participant.garuda && !appState.participant.ksatria && appState.participant.kelompok) {
         const matches = appState.participant.kelompok.match(/\b(\d+)\b/g);
@@ -86,8 +92,13 @@ const restoreStateFromStorage = () => {
         appState.participant.kelompok = `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`;
       }
     }
-    if (parsed.products) appState.products = { ...appState.products, ...parsed.products };
-    if (parsed.payment) {
+    if (parsed.products && typeof parsed.products === 'object') {
+      appState.products = {
+        selected: (parsed.products.selected && typeof parsed.products.selected === 'object') ? { ...parsed.products.selected } : {},
+        bundleActive: !!parsed.products.bundleActive
+      };
+    }
+    if (parsed.payment && typeof parsed.payment === 'object') {
       appState.payment = { ...appState.payment, ...parsed.payment };
       if (appState.payment.proofFile && !appState.payment.proofFile.originalFile && appState.payment.proofFile.dataUrl) {
         const fileObj = dataUrlToFile(
@@ -111,7 +122,11 @@ const restoreStateFromStorage = () => {
 const clearStorageAfterOrder = () => {
   try {
     localStorage.removeItem(STORAGE_KEY);
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.removeItem(STORAGE_KEY);
+      sessionStorage.clear();
+    }
   } catch (err) {
-    console.warn('Unable to clear localStorage:', err);
+    console.warn('Unable to clear browser storage:', err);
   }
 };

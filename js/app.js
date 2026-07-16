@@ -90,7 +90,14 @@ const renderStep1ProductSelection = () => {
   const selectionGrid = document.getElementById('step1ProductsGrid');
   if (!bundleBanner || !selectionGrid) return;
 
-  const isBundleActive = appState.products.bundleActive;
+  if (!appState.products || typeof appState.products !== 'object') {
+    appState.products = { selected: {}, bundleActive: false };
+  }
+  if (!appState.products.selected || typeof appState.products.selected !== 'object') {
+    appState.products.selected = {};
+  }
+
+  const isBundleActive = !!appState.products.bundleActive;
 
   bundleBanner.innerHTML = `
     <div>
@@ -125,9 +132,13 @@ const renderStep1ProductSelection = () => {
     };
   }
 
+  const catalogList = (typeof productsList !== 'undefined' && Array.isArray(productsList) && productsList.length > 0)
+    ? productsList
+    : (appState?.config?.productsList || []);
+
   let gridHtml = '';
-  productsList.forEach((prod) => {
-    const isSelected = !isBundleActive && (appState.products.selected[prod.id] > 0);
+  catalogList.forEach((prod) => {
+    const isSelected = !isBundleActive && !!(appState.products.selected && appState.products.selected[prod.id] > 0);
     gridHtml += `
       <div class="select-product-card ${isSelected ? 'active' : ''} ${isBundleActive ? 'opacity-50' : ''}" 
            data-prod-id="${prod.id}">
@@ -424,6 +435,8 @@ const submitOrderToBackend = async () => {
     appState.order.timestamp = timestamp;
     appState.order.status = STATUS_PENDING_VERIFICATION;
 
+    clearStorageAfterOrder();
+
     renderSuccessPage();
     goToStep(STEP_SUCCESS);
     showToast('Pesanan berhasil dibuat! Silakan simpan Order ID Anda.', 'success');
@@ -498,6 +511,7 @@ const renderSuccessPage = () => {
 };
 
 const resetApplicationState = () => {
+  // 1. Reset Participant Session
   appState.participant = {
     nama: '',
     nim: '',
@@ -508,25 +522,70 @@ const resetApplicationState = () => {
     whatsapp: '',
     alamat: ''
   };
+
+  // 2. Reset Product Selection Session
   appState.products = {
     selected: {},
     bundleActive: false
   };
+
+  // 3. Reset Payment Session (including proof file and preview state)
   appState.payment = {
     method: 'qris',
     proofFile: null
   };
+
+  // 4. Reset Order Session
   appState.order = {
     orderId: null,
     timestamp: null,
-    status: STATUS_DRAFT
+    status: STATUS_DRAFT,
+    response: null,
+    invoice: null
   };
-  appState.ui.currentStep = STEP_PRODUCT;
-  appState.ui.isSubmitting = false;
 
-  const formEl = document.getElementById('participantForm');
+  // 5. Reset UI Session State (preserving isResetting if active)
+  const currentResettingFlag = appState.ui?.isResetting || false;
+  appState.ui = {
+    currentStep: STEP_PRODUCT,
+    isSubmitting: false,
+    isResetting: currentResettingFlag,
+    validationErrors: {},
+    successFlags: {},
+    previewState: null
+  };
+
+  // 6. Preserve Static Application Configuration (DO NOT RESET OR MUTATE)
+  if (!appState.config) {
+    appState.config = {};
+  }
+  if (typeof productsList !== 'undefined') appState.config.productsList = productsList;
+  if (typeof bundlePackage !== 'undefined') appState.config.bundle = bundlePackage;
+  if (typeof APP_CONFIG !== 'undefined') appState.config.deadline = APP_CONFIG.deadlineTimestamp;
+
+  // 7. Reset Participant DOM Form Inputs & Error States
+  const formEl = document.getElementById('formParticipant') || document.getElementById('participantForm');
   if (formEl) formEl.reset();
 
+  const inputIds = ['input-nama', 'input-nim', 'input-fakultas', 'input-garuda', 'input-ksatria', 'input-whatsapp', 'input-alamat'];
+  inputIds.forEach(id => {
+    const inputEl = document.getElementById(id);
+    if (inputEl) {
+      inputEl.value = '';
+      inputEl.classList.remove('error');
+    }
+  });
+
+  const errorIds = ['error-input-nama', 'error-input-nim', 'error-input-fakultas', 'error-input-garuda', 'error-input-ksatria', 'error-input-whatsapp'];
+  errorIds.forEach(id => {
+    const errEl = document.getElementById(id);
+    if (errEl) {
+      errEl.textContent = '';
+      errEl.innerHTML = '';
+    }
+  });
+
+  // 8. Reset Payment & Agreement DOM Controls
   const agreeEl = document.getElementById('checkAgreeTerms');
   if (agreeEl) agreeEl.checked = false;
 
@@ -536,6 +595,17 @@ const resetApplicationState = () => {
   const methodSelectEl = document.getElementById('paymentMethodSelect');
   if (methodSelectEl) methodSelectEl.value = 'qris';
 
+  // 9. Clear Review & Summary DOM Containers
+  const reviewContainers = ['reviewParticipantData', 'reviewProductData', 'reviewPaymentData', 'successOrderSummary'];
+  reviewContainers.forEach(id => {
+    const box = document.getElementById(id);
+    if (box) box.innerHTML = '';
+  });
+
+  const orderIdDisplay = document.getElementById('successOrderIdDisplay');
+  if (orderIdDisplay) orderIdDisplay.textContent = 'AMERTA26-000000';
+
+  // 10. Re-render Clean Step 1 Catalog, Summary Bar & File Preview
   renderStep1ProductSelection();
   updateLiveSummaryBar();
   renderUploadedFilePreview();
