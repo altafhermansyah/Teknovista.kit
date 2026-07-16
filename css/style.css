@@ -209,7 +209,7 @@ ul, ol {
     display: flex !important;
     width: 100%;
     order: 3;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 8px;
     padding-top: 10px;

@@ -194,7 +194,7 @@ const updateLiveSummaryBar = () => {
 
   const calc = calculateOrderTotal();
   if (calc.isBundle) {
-    labelEl.innerHTML = `Terpilih: <b>Bundle Lengkap (4 Atribut)</b> — Hemat ${formatIDR(calc.savings)}`;
+    labelEl.innerHTML = `Terpilih: <b>Bundle Lengkap (3 Atribut)</b>, Hemat ${formatIDR(calc.savings)}`;
   } else if (calc.itemCount === 0) {
     labelEl.innerHTML = `Belum ada produk yang dipilih`;
   } else {
