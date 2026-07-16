@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <defs>
+    <filter id="qrisShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <rect x="10" y="10" width="280" height="380" rx="16" fill="#FFFFFF" filter="url(#qrisShadow)" stroke="#E2E8F0" stroke-width="1"/>
+  
+  <!-- QRIS Header Red & White -->
+  <path d="M10 26 C10 17.163 17.163 10 26 10 L274 10 C282.837 10 290 17.163 290 26 L290 60 L10 60 Z" fill="#ED1C24"/>
+  <text x="30" y="42" font-family="sans-serif" font-size="22" font-weight="900" font-style="italic" fill="#FFFFFF" letter-spacing="1">QRIS</text>
+  <text x="140" y="38" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">QUICK RESPONSE CODE</text>
+  <text x="140" y="50" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">INDONESIA STANDARD</text>
+  
+  <!-- Merchant Info -->
+  <text x="150" y="90" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">PANITIA AMERTA UNAIR 2026</text>
+  <text x="150" y="108" font-family="sans-serif" font-size="11" fill="#64748B" text-anchor="middle">NMID : ID1029384756201</text>
+  
+  <!-- QR Code Frame -->
+  <rect x="40" y="125" width="220" height="220" rx="8" fill="#FFFFFF" stroke="#003B73" stroke-width="2"/>
+  
+  <!-- Corner squares -->
+  <rect x="55" y="140" width="45" height="45" rx="6" fill="#000000"/>
+  <rect x="63" y="148" width="29" height="29" rx="3" fill="#FFFFFF"/>
+  <rect x="70" y="155" width="15" height="15" fill="#000000"/>
+  
+  <rect x="200" y="140" width="45" height="45" rx="6" fill="#000000"/>
+  <rect x="208" y="148" width="29" height="29" rx="3" fill="#FFFFFF"/>
+  <rect x="215" y="155" width="15" height="15" fill="#000000"/>
+  
+  <rect x="55" y="285" width="45" height="45" rx="6" fill="#000000"/>
+  <rect x="63" y="293" width="29" height="29" rx="3" fill="#FFFFFF"/>
+  <rect x="70" y="300" width="15" height="15" fill="#000000"/>
+  
+  <!-- QR Pattern Grid Simulation -->
+  <g fill="#000000">
+    <!-- Row 1 -->
+    <rect x="115" y="140" width="12" height="12"/><rect x="135" y="140" width="12" height="12"/><rect x="155" y="140" width="12" height="12"/><rect x="175" y="140" width="12" height="12"/>
+    <!-- Row 2 -->
+    <rect x="125" y="155" width="12" height="12"/><rect x="145" y="155" width="22" height="12"/><rect x="180" y="155" width="10" height="12"/>
+    <!-- Row 3 -->
+    <rect x="115" y="170" width="20" height="12"/><rect x="145" y="170" width="12" height="12"/><rect x="165" y="170" width="20" height="12"/>
+    <!-- Center Block -->
+    <rect x="55" y="195" width="15" height="15"/><rect x="80" y="195" width="25" height="15"/><rect x="115" y="195" width="15" height="15"/><rect x="140" y="195" width="20" height="15"/><rect x="170" y="195" width="15" height="15"/><rect x="195" y="195" width="20" height="15"/><rect x="225" y="195" width="20" height="15"/>
+    <rect x="65" y="220" width="20" height="15"/><rect x="95" y="220" width="15" height="15"/><rect x="120" y="220" width="25" height="15"/><rect x="155" y="220" width="15" height="15"/><rect x="185" y="220" width="25" height="15"/><rect x="220" y="220" width="15" height="15"/>
+    <rect x="55" y="245" width="25" height="15"/><rect x="90" y="245" width="15" height="15"/><rect x="115" y="245" width="20" height="15"/><rect x="145" y="245" width="30" height="15"/><rect x="185" y="245" width="15" height="15"/><rect x="210" y="245" width="35" height="15"/>
+    <!-- Bottom Right -->
+    <rect x="115" y="270" width="15" height="15"/><rect x="140" y="270" width="20" height="15"/><rect x="170" y="270" width="15" height="15"/><rect x="195" y="270" width="25" height="15"/><rect x="230" y="270" width="15" height="15"/>
+    <rect x="115" y="295" width="25" height="15"/><rect x="150" y="295" width="15" height="15"/><rect x="175" y="295" width="20" height="15"/><rect x="205" y="295" width="15" height="15"/><rect x="230" y="295" width="15" height="15"/>
+    <rect x="115" y="318" width="15" height="12"/><rect x="140" y="318" width="25" height="12"/><rect x="175" y="318" width="15" height="12"/><rect x="200" y="318" width="20" height="12"/><rect x="230" y="318" width="15" height="12"/>
+  </g>
+  
+  <!-- Center Airlangga Logo Placeholder -->
+  <circle cx="150" cy="235" r="22" fill="#FFFFFF" stroke="#003B73" stroke-width="2"/>
+  <circle cx="150" cy="235" r="16" fill="#003B73"/>
+  <text x="150" y="239" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFC107" text-anchor="middle">UA</text>
+
+  <!-- Footer note -->
+  <text x="150" y="368" font-family="sans-serif" font-size="11" font-weight="600" fill="#003B73" text-anchor="middle">Scan dengan GoPay, OVO, Dana, ShopeePay, m-Banking</text>
+</svg>

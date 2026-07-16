@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bookCover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003B73"/>
+      <stop offset="100%" stop-color="#002850"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </linearGradient>
+    <filter id="bookShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="16" stdDeviation="12" flood-color="#001a33" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="300" height="300" rx="16" fill="#F8FAFC"/>
+  <circle cx="150" cy="150" r="110" fill="#EBF3FA"/>
+  
+  <g transform="translate(65, 35)" filter="url(#bookShadow)">
+    <!-- Book Pages Edge -->
+    <path d="M15 15 L175 15 C180 15 185 20 185 25 L185 225 C185 230 180 235 175 235 L15 235 Z" fill="#FFFFFF"/>
+    <!-- Book Cover -->
+    <path d="M0 0 L165 0 C172 0 177 5 177 12 L177 222 C177 229 172 234 165 234 L0 234 Z" fill="url(#bookCover)"/>
+    <!-- Spine binding -->
+    <rect x="0" y="0" width="16" height="234" fill="#001830"/>
+    <line x1="16" y1="0" x2="16" y2="234" stroke="#0056a8" stroke-width="1.5"/>
+    
+    <!-- Emblem -->
+    <circle cx="95" cy="70" r="28" fill="#0056a8" opacity="0.3"/>
+    <circle cx="95" cy="70" r="20" fill="url(#goldAccent)"/>
+    <text x="95" y="75" font-family="sans-serif" font-size="14" font-weight="900" fill="#003B73" text-anchor="middle">UA</text>
+    
+    <!-- Title Text -->
+    <text x="95" y="125" font-family="sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">BUKU PANDUAN</text>
+    <text x="95" y="145" font-family="sans-serif" font-size="12" font-weight="600" fill="#93C5FD" text-anchor="middle" letter-spacing="1">AMERTA 2026</text>
+    
+    <line x1="45" y1="165" x2="145" y2="165" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+    <text x="95" y="195" font-family="sans-serif" font-size="9" fill="#E2E8F0" text-anchor="middle">UNIVERSITAS AIRLANGGA</text>
+  </g>
+</svg>

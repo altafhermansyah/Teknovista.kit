@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEKNOVISTA.KIT — Official Order Portal Kit Penugasan AMERTA Universitas Airlangga 2026</title>
+  <meta name="description" content="TEKNOVISTA.KIT — Official Order Portal Kit Penugasan AMERTA Universitas Airlangga 2026. Pesan atribut resmi dan paket lengkap dengan mudah." />
+  <meta name="keywords" content="TEKNOVISTA.KIT, AMERTA 2026, Universitas Airlangga, UNAIR, Mahasiswa Baru, Ospek UNAIR, Kit Penugasan" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="navbar" role="navigation" aria-label="Navigasi Utama">
+    <div class="container">
+      <a href="#" class="brand-link" aria-label="Beranda TEKNOVISTA.KIT">
+        <!-- <img src="assets/images/logo-unair-amerta.svg" alt="Logo TEKNOVISTA.KIT" /> -->
+        <span class="font-bold text-primary" style="font-size: 1.15rem; letter-spacing: -0.3px;">TEKNOVISTA<span class="text-accent">.KIT</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero-section">Beranda</a></li>
+        <li><a href="#order-section">Pesan Kit</a></li>
+        <li><a href="#faq-section">FAQ</a></li>
+        <li><a href="tracking.html" style="color: var(--accent);">Lacak Pesanan</a></li>
+      </ul>
+      <a href="#order-section" class="btn btn-primary btn-sm">Pesan Kit Sekarang</a>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       HERO SECTION
+       ========================================================================= -->
+  <header class="hero" id="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">🚀 TEKNOVISTA.KIT — Official Order Portal</div>
+        <h1>Kit Penugasan Resmi AMERTA Universitas Airlangga 2026</h1>
+        <p class="subtitle">
+          Portal resmi pemesanan atribut wajib dan kelengkapan penugasan (Buku Panduan, ID Card Eksklusif, Lembar Hymne, dan Janji Ksatria) bagi seluruh Mahasiswa Baru Universitas Airlangga 2026. Prioritaskan kelengkapan sebelum orientasi dimulai.
+        </p>
+
+        <!-- Countdown Box -->
+        <div class="countdown-container" aria-label="Hitung mundur penutupan pemesanan">
+          <div class="countdown-header">
+            <span>⏳ Batas Akhir Pemesanan Kit Gelombang I</span>
+          </div>
+          <div class="countdown-grid" id="countdownTimerGrid">
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-days">42</span>
+              <span class="countdown-label">Hari</span>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-hours">14</span>
+              <span class="countdown-label">Jam</span>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-minutes">38</span>
+              <span class="countdown-label">Menit</span>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-seconds">52</span>
+              <span class="countdown-label">Detik</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#order-section" class="btn btn-primary btn-lg">Pesan Kit Sekarang</a>
+          <a href="#faq-section" class="btn btn-secondary btn-lg">Baca Panduan &amp; FAQ</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="assets/images/hero-illustration.svg" alt="Ilustrasi Kit Penugasan AMERTA 2026" />
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Gulir ke bawah untuk memesan</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+  <main>
+
+    <!-- MULTI-STEP ORDER WIZARD SECTION -->
+    <section class="section-padding" id="order-section" aria-label="Formulir Pemesanan Kit AMERTA">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">⚡ Pemesanan Cepat Tanpa Reload</div>
+          <h2>Portal Pemesanan Resmi TEKNOVISTA.KIT</h2>
+          <p>Pilih atribut atau paket bundle, isi data diri Anda, dan konfirmasi bukti pembayaran dalam beberapa langkah mudah.</p>
+        </div>
+
+        <div class="wizard-section">
+          <!-- Wizard Progress Bar -->
+          <div class="wizard-progress-bar">
+            <ol class="steps-list" aria-label="Progres Langkah Pemesanan">
+              <li class="step-item active" data-step="1">
+                <div class="step-circle">1</div>
+                <span class="step-label">Pilih Atribut</span>
+              </li>
+              <li class="step-item" data-step="2">
+                <div class="step-circle">2</div>
+                <span class="step-label">Data Ksatria</span>
+              </li>
+              <li class="step-item" data-step="3">
+                <div class="step-circle">3</div>
+                <span class="step-label">Pembayaran</span>
+              </li>
+              <li class="step-item" data-step="4">
+                <div class="step-circle">4</div>
+                <span class="step-label">Konfirmasi</span>
+              </li>
+              <li class="step-item" data-step="5">
+                <div class="step-circle">5</div>
+                <span class="step-label">Selesai</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Wizard Content Panels -->
+          <div class="wizard-content">
+
+            <!-- STEP 1: PRODUCT SELECTION -->
+            <div class="step-panel active" id="wizardStepPanel-1">
+              <div class="panel-header">
+                <h3>Pilihan Atribut &amp; Paket Penugasan</h3>
+                <p>Anda dapat memilih Paket Bundle Lengkap untuk penghematan maksimal, atau memilih produk secara satuan sesuai kebutuhan Anda.</p>
+              </div>
+
+              <!-- Bundle Banner -->
+              <div class="bundle-banner" id="step1BundleBanner">
+                <!-- Populated dynamically -->
+              </div>
+
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--primary); margin-bottom:16px;">Atribut Satuan (Non-Bundle)</h4>
+              <div class="selection-grid" id="step1ProductsGrid">
+                <!-- Populated dynamically -->
+              </div>
+
+              <!-- Live Summary Bar -->
+              <div class="summary-live-bar">
+                <div>
+                  <div class="total-label" id="liveSummaryLabel">Terpilih: Belum ada produk</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">Harga sudah termasuk pajak &amp; biaya admin resmi AMERTA</div>
+                </div>
+                <div>
+                  <span class="total-amount" id="liveSummaryAmount">Rp 0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: PARTICIPANT DATA -->
+            <div class="step-panel" id="wizardStepPanel-2">
+              <div class="panel-header">
+                <h3>Identitas Ksatria Airlangga</h3>
+                <p>Pastikan nama dan NIM sesuai dengan pendaftaran resmi penerimaan mahasiswa baru Universitas Airlangga.</p>
+              </div>
+
+              <form id="formParticipant" onsubmit="return false;">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="input-nama">
+                      <span>Nama Lengkap (Sesuai KTM / KTP) <span class="required-mark">*</span></span>
+                    </label>
+                    <input type="text" id="input-nama" class="form-input" placeholder="Contoh: Airlangga Satria Nusantara" />
+                    <div class="error-message" id="error-input-nama"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-nim">
+                      <span>Nomor Induk Mahasiswa (NIM) <span class="required-mark">*</span></span>
+                    </label>
+                    <input type="text" id="input-nim" class="form-input" placeholder="Contoh: 102611133001" />
+                    <div class="error-message" id="error-input-nim"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-fakultas">
+                      <span>Fakultas <span class="required-mark">*</span></span>
+                    </label>
+                    <select id="input-fakultas" class="form-select">
+                      <option value="">-- Pilih Fakultas --</option>
+                      <option value="Fakultas Kedokteran">Fakultas Kedokteran (FK)</option>
+                      <option value="Fakultas Kedokteran Gigi">Fakultas Kedokteran Gigi (FKG)</option>
+                      <option value="Fakultas Hukum">Fakultas Hukum (FH)</option>
+                      <option value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis (FEB)</option>
+                      <option value="Fakultas Farmasi">Fakultas Farmasi (FF)</option>
+                      <option value="Fakultas Kedokteran Hewan">Fakultas Kedokteran Hewan (FKH)</option>
+                      <option value="Fakultas Ilmu Sosial dan Ilmu Politik">Fakultas Ilmu Sosial dan Ilmu Politik (FISIP)</option>
+                      <option value="Fakultas Sains dan Teknologi">Fakultas Sains dan Teknologi (FST)</option>
+                      <option value="Fakultas Kesehatan Masyarakat">Fakultas Kesehatan Masyarakat (FKM)</option>
+                      <option value="Fakultas Psikologi">Fakultas Psikologi (FPsi)</option>
+                      <option value="Fakultas Ilmu Budaya">Fakultas Ilmu Budaya (FIB)</option>
+                      <option value="Fakultas Keperawatan">Fakultas Keperawatan (FKp)</option>
+                      <option value="Fakultas Perikanan dan Kelautan">Fakultas Perikanan dan Kelautan (FPK)</option>
+                      <option value="Fakultas Teknologi Maju dan Multidisiplin">Fakultas Teknologi Maju &amp; Multidisiplin (FTMM)</option>
+                      <option value="Fakultas Vokasi">Fakultas Vokasi (FV)</option>
+                    </select>
+                    <div class="error-message" id="error-input-fakultas"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">
+                      <span>Kelompok AMERTA <span class="required-mark">*</span></span>
+                    </label>
+                    <div class="split-input-grid">
+                      <div class="split-input-col">
+                        <label class="split-input-label" for="input-garuda">Garuda</label>
+                        <input type="text" inputmode="numeric" autocomplete="off" id="input-garuda" class="form-input" placeholder="Contoh: 12" />
+                        <div class="error-message" id="error-input-garuda"></div>
+                      </div>
+                      <div class="split-input-col">
+                        <label class="split-input-label" for="input-ksatria">Ksatria</label>
+                        <input type="text" inputmode="numeric" autocomplete="off" id="input-ksatria" class="form-input" placeholder="Contoh: 16" />
+                        <div class="error-message" id="error-input-ksatria"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-whatsapp">
+                      <span>Nomor WhatsApp Aktif <span class="required-mark">*</span></span>
+                    </label>
+                    <input type="tel" id="input-whatsapp" class="form-input" placeholder="Contoh: 081234567890" />
+                    <div class="error-message" id="error-input-whatsapp"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-alamat">
+                      <span>Alamat Domisili Surabaya / Kos (Opsional)</span>
+                    </label>
+                    <input type="text" id="input-alamat" class="form-input" placeholder="Contoh: Jl. Dharmawangsa Dalam No. 14" />
+                    <div class="error-message" style="min-height: 18px;"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- STEP 3: PAYMENT & FILE UPLOAD -->
+            <div class="step-panel" id="wizardStepPanel-3">
+              <div class="panel-header">
+                <h3>Pembayaran &amp; Unggah Bukti Transfer</h3>
+                <p>Silakan lakukan pembayaran sesuai nominal total tagihan. Unggah foto atau screenshot bukti transaksi untuk proses verifikasi otomatis oleh sistem.</p>
+              </div>
+
+              <div class="payment-grid">
+                <!-- Payment Methods & Info -->
+                <div class="payment-card">
+                  <h4>Pilih Metode Pembayaran</h4>
+                  <div class="form-group mb-4">
+                    <select id="paymentMethodSelect" class="form-select">
+                      <option value="qris">QRIS Standar Nasional (GoPay, OVO, Dana, ShopeePay, M-Banking)</option>
+                      <option value="transfer">Transfer Bank Resmi UNAIR (Mandiri / BNI / BSI)</option>
+                    </select>
+                  </div>
+
+                  <div class="qris-box">
+                    <img src="assets/images/qris-placeholder.svg" alt="Scan QRIS AMERTA 2026" />
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--primary);">Scan QRIS dengan E-Wallet atau M-Banking Anda</div>
+                  </div>
+
+                  <div class="bank-info">
+                    <div class="bank-row">
+                      <span>Bank Mandiri</span>
+                      <span class="font-bold">141-00-1029384-7 a.n. AMERTA UNAIR</span>
+                    </div>
+                    <div class="bank-row">
+                      <span>Bank BNI</span>
+                      <span class="font-bold">0987654321 a.n. PANITIA AMERTA</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Upload Proof Card -->
+                <div class="payment-card">
+                  <h4>Unggah Bukti Pembayaran</h4>
+                  <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:16px;">
+                    Total tagihan yang harus dibayar: <strong class="text-accent" style="font-size:1.15rem;" id="paymentStepTotalAmount">Rp 0</strong>
+                  </p>
+
+                  <div class="upload-zone" id="dropZoneArea">
+                    <div class="upload-icon">📤</div>
+                    <h5>Tarik &amp; Lepas File Bukti Pembayaran</h5>
+                    <p>Atau klik untuk memilih dari perangkat Anda</p>
+                    <p style="font-size:0.75rem; color:var(--text-light); margin-top:8px;">Format didukung: JPG, PNG, WEBP, atau PDF (Maks. 5 MB)</p>
+                  </div>
+
+                  <input type="file" id="proofFileInput" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none;" />
+
+                  <!-- File Preview Container -->
+                  <div class="file-preview-box" id="filePreviewContainer" style="display:none;">
+                    <div class="file-preview-content">
+                      <div class="file-thumb" id="previewFileThumb"></div>
+                      <div class="file-info">
+                        <div class="file-name" id="previewFileName">bukti-transfer.png</div>
+                        <div class="file-size" id="previewFileSize">1.2 MB</div>
+                      </div>
+                    </div>
+                    <div class="file-actions">
+                      <button type="button" class="btn btn-secondary btn-sm" id="btnReplaceFile">Ganti</button>
+                      <button type="button" class="btn btn-outline btn-sm" style="color:var(--error); border-color:var(--error);" id="btnRemoveFile">Hapus</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: CONFIRMATION REVIEW -->
+            <div class="step-panel" id="wizardStepPanel-4">
+              <div class="panel-header">
+                <h3>Tinjau Ulang &amp; Konfirmasi Pesanan</h3>
+                <p>Periksa kembali kebenaran identitas mahasiswa dan daftar atribut pesanan sebelum dikirim ke sistem verifikasi AMERTA UNAIR 2026.</p>
+              </div>
+
+              <div class="confirm-grid">
+                <div>
+                  <div class="review-box">
+                    <h4>📋 Data Identitas Ksatria</h4>
+                    <div id="reviewParticipantData"></div>
+                  </div>
+
+                  <div class="review-box">
+                    <h4>📦 Rincian Pesanan Atribut</h4>
+                    <div id="reviewProductData"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="review-box">
+                    <h4>💳 Informasi Pembayaran</h4>
+                    <div id="reviewPaymentData"></div>
+                  </div>
+
+                  <div class="review-box" style="background-color:var(--warning-light); border-color:var(--warning);">
+                    <h4 style="color:#B45309;">⚠️ Pernyataan Kebenaran Data</h4>
+                    <label style="display:flex; gap:12px; align-items:flex-start; cursor:pointer; font-size:0.875rem; color:#78350F; line-height:1.5;">
+                      <input type="checkbox" id="checkAgreeTerms" checked style="margin-top:3px; width:18px; height:18px; flex-shrink:0;" />
+                      <span>Saya menyatakan bahwa seluruh data diri dan bukti pembayaran yang saya lampirkan adalah sah dan benar. Saya siap mengikuti seluruh tata tertib penugasan AMERTA Universitas Airlangga 2026.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: SUCCESS PAGE -->
+            <div class="step-panel" id="wizardStepPanel-5">
+              <div class="success-panel">
+                <div class="success-illustration">
+                  <img src="assets/images/success-illustration.svg" alt="Pemesanan Berhasil" />
+                </div>
+                <h3>Pemesanan Kit AMERTA Berhasil!</h3>
+                <p>Terima kasih ksatria Airlangga! Pesanan Anda telah diterima oleh sistem dan sedang menunggu verifikasi oleh panitia resmi AMERTA UNAIR 2026.</p>
+
+                <div class="order-id-card">
+                  <div class="order-id-label">Nomor Registrasi Pesanan / Order ID</div>
+                  <div class="order-id-value" id="successOrderIdDisplay">AMERTA26-000000</div>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btnCopyOrderId">
+                    <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Salin Order ID</span>
+                  </button>
+                </div>
+
+                <div id="successOrderSummary"></div>
+
+                <div class="success-actions">
+                  <button type="button" class="btn btn-whatsapp btn-lg" id="btnWhatsappAdmin">
+                    <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                    <span>Konfirmasi ke WhatsApp Admin</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-lg" onclick="const orderId = document.getElementById('successOrderIdDisplay')?.textContent?.trim() || window.appState?.order?.orderId; if(orderId && orderId !== 'AMERTA26-000000') { window.location.href = `tracking.html?orderId=${encodeURIComponent(orderId)}`; } else { window.location.href = 'tracking.html'; }">
+                    <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span>Lacak Pesanan</span>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-lg" onclick="resetAndGoHome()">
+                    <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span>Kembali ke Beranda</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Wizard Footer Controls -->
+          <div class="wizard-footer" id="wizardControlsFooter">
+            <!-- Step 1 Controls -->
+            <div id="controlsStep1" style="width:100%; display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary btn-lg" id="btnNextToStep2">Lanjut ke Data Ksatria &rarr;</button>
+            </div>
+
+            <!-- Step 2 Controls -->
+            <div id="controlsStep2" style="width:100%; display:none; justify-content:space-between;">
+              <button type="button" class="btn btn-secondary btn-lg" id="btnBackToStep1">&larr; Kembali</button>
+              <button type="button" class="btn btn-primary btn-lg" id="btnNextToStep3">Lanjut ke Pembayaran &rarr;</button>
+            </div>
+
+            <!-- Step 3 Controls -->
+            <div id="controlsStep3" style="width:100%; display:none; justify-content:space-between;">
+              <button type="button" class="btn btn-secondary btn-lg" id="btnBackToStep2">&larr; Kembali</button>
+              <button type="button" class="btn btn-primary btn-lg" id="btnNextToStep4">Tinjau Pesanan &rarr;</button>
+            </div>
+
+            <!-- Step 4 Controls -->
+            <div id="controlsStep4" style="width:100%; display:none; justify-content:space-between;">
+              <button type="button" class="btn btn-secondary btn-lg" id="btnBackToStep3">&larr; Kembali</button>
+              <button type="button" class="btn btn-primary btn-lg" style="background-color:var(--success);" id="btnSubmitOrder">✨ Konfirmasi &amp; Kirim Pesanan</button>
+            </div>
+
+            <!-- Step 5 Controls -->
+            <div id="controlsStep5" style="width:100%; display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="section-padding" id="faq-section" aria-label="Tanya Jawab">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge">❓ Informasi Penting</div>
+          <h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>
+          <p>Temukan jawaban seputar pemesanan atribut, penugasan, dan jadwal distribusi kit AMERTA Universitas Airlangga 2026.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Apakah pemesanan Kit AMERTA 2026 ini wajib bagi seluruh Mahasiswa Baru?</span>
+              <div class="faq-icon">▼</div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                Ya, Buku Panduan, ID Card, Lembar Hymne, dan Janji Ksatria merupakan kelengkapan wajib yang harus dibawa dan dikenakan selama rangkaian orientasi AMERTA Universitas Airlangga 2026 berlangsung.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Kapan dan di mana pengambilan fisik Kit Atribut AMERTA dilakukan?</span>
+              <div class="faq-icon">▼</div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                Pengambilan fisik kit atribut akan dilaksanakan pada tanggal 16–18 Agustus 2026 di Airlangga Convention Center (ACC) Kampus C UNAIR dengan menunjukkan Order ID dan KTM/KTP sementara.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Bagaimana jika saya salah memasukkan NIM atau Fakultas saat memesan?</span>
+              <div class="faq-icon">▼</div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                Jika Anda mengalami kesalahan input setelah pesanan dikirim, segera hubungi kontak WhatsApp Admin AMERTA yang tertera di halaman sukses dengan menyertakan Order ID Anda sebelum tanggal verifikasi berakhir.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Apakah saya bisa memesan secara kolektif bersama teman satu fakultas/kelompok?</span>
+              <div class="faq-icon">▼</div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                Pemesanan dalam sistem ini dirancang per individu untuk memastikan verifikasi NIM dan nama tercetak dengan akurat pada ID Card dan sertifikat Janji Ksatria masing-masing mahasiswa.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Metode pembayaran apa saja yang dapat digunakan?</span>
+              <div class="faq-icon">▼</div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                Kami mendukung pembayaran instan melalui QRIS Standar Nasional yang dapat discan dari seluruh aplikasi E-Wallet (GoPay, OVO, DANA, ShopeePay) maupun Mobile Banking (Livin Mandiri, Wondr BNI, BCA Mobile, dll).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>🚀 TEKNOVISTA.KIT</h4>
+          <p>
+            Official Order Portal Kit Penugasan AMERTA UNAIR 2026. Badan Eksekutif Mahasiswa Universitas Airlangga bekerjasama dengan Direktorat Kemahasiswaan UNAIR.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Tautan Cepat</h5>
+          <div class="footer-links">
+            <a href="https://unair.ac.id" target="_blank" rel="noopener">Situs Resmi UNAIR</a>
+            <a href="#hero-section">Beranda Portal</a>
+            <a href="#order-section">Pesan Kit</a>
+            <a href="#faq-section">FAQ</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Bantuan &amp; Layanan</h5>
+          <div class="footer-links">
+            <a href="#faq-section">Pertanyaan FAQ</a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp Helpdesk</a>
+            <a href="mailto:amerta2026@unair.ac.id">amerta2026@unair.ac.id</a>
+            <span>Gedung Student Center Kampus C UNAIR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 TEKNOVISTA.KIT — Official Order Portal Kit Penugasan AMERTA Universitas Airlangga 2026. Hak Cipta Dilindungi Undang-Undang.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modular JavaScript Architecture -->
+  <script src="js/constants.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/utils/formatter.js"></script>
+  <script src="js/utils/storage.js"></script>
+  <script src="js/utils/toast.js"></script>
+  <script src="js/utils/modal.js"></script>
+  <script src="js/utils/validator.js"></script>
+  <script src="js/services/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

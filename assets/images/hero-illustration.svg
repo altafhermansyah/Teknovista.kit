@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF3FA"/>
+      <stop offset="100%" stop-color="#D6EAFA"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="blueAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#003B73"/>
+      <stop offset="100%" stop-color="#0072CE"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#003B73" flood-opacity="0.12"/>
+    </filter>
+    <filter id="floatShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#003B73" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Decorative Circle -->
+  <circle cx="260" cy="190" r="160" fill="url(#bgGrad)"/>
+  <circle cx="120" cy="80" r="15" fill="#0072CE" opacity="0.2"/>
+  <circle cx="410" cy="300" r="25" fill="#FFC107" opacity="0.25"/>
+  <path d="M400 90 L415 105 M400 105 L415 90" stroke="#003B73" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Main Document / Buku Panduan Card -->
+  <g transform="translate(130, 70)" filter="url(#shadow)">
+    <rect x="0" y="0" width="220" height="260" rx="16" fill="url(#cardGrad)"/>
+    <!-- Header banner -->
+    <path d="M0 16 C0 7.163 7.163 0 16 0 L204 0 C212.837 0 220 7.163 220 16 L220 70 L0 70 Z" fill="url(#blueAccent)"/>
+    <circle cx="35" cy="35" r="16" fill="#FFFFFF" opacity="0.2"/>
+    <path d="M35 25 C38 28 40 30 38 34 C36 38 32 38 32 38 C32 38 35 34 33 30 C31 26 35 25 35 25 Z" fill="#FFC107"/>
+    <text x="65" y="32" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">KIT AMERTA 2026</text>
+    <text x="65" y="48" font-family="sans-serif" font-size="9" fill="#EBF3FA" opacity="0.9">Panduan &amp; Atribut Resmi</text>
+
+    <!-- Content mock lines -->
+    <rect x="24" y="95" width="120" height="12" rx="6" fill="#003B73"/>
+    <rect x="24" y="120" width="172" height="8" rx="4" fill="#E2E8F0"/>
+    <rect x="24" y="136" width="150" height="8" rx="4" fill="#E2E8F0"/>
+    <rect x="24" y="152" width="160" height="8" rx="4" fill="#E2E8F0"/>
+    
+    <!-- Checklist items inside book -->
+    <g transform="translate(24, 180)">
+      <circle cx="10" cy="10" r="10" fill="#EBF3FA"/>
+      <path d="M6 10 L9 13 L14 7" stroke="#0072CE" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <rect x="28" y="6" width="90" height="8" rx="4" fill="#64748B"/>
+    </g>
+    <g transform="translate(24, 210)">
+      <circle cx="10" cy="10" r="10" fill="#EBF3FA"/>
+      <path d="M6 10 L9 13 L14 7" stroke="#0072CE" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <rect x="28" y="6" width="110" height="8" rx="4" fill="#64748B"/>
+    </g>
+  </g>
+
+  <!-- Floating ID Card -->
+  <g transform="translate(280, 160)" filter="url(#floatShadow)">
+    <!-- Lanyard strap -->
+    <path d="M65 -70 L65 0" stroke="#003B73" stroke-width="12" stroke-linecap="round"/>
+    <rect x="0" y="0" width="130" height="180" rx="12" fill="#FFFFFF"/>
+    <rect x="0" y="0" width="130" height="40" rx="12" fill="#003B73"/>
+    <rect x="0" y="25" width="130" height="15" fill="#003B73"/>
+    <circle cx="65" cy="80" r="28" fill="#EBF3FA"/>
+    <circle cx="65" cy="72" r="10" fill="#0072CE"/>
+    <path d="M45 98 C45 88 85 88 85 98 Z" fill="#0072CE"/>
+    <rect x="25" y="120" width="80" height="10" rx="5" fill="#1E293B"/>
+    <rect x="35" y="136" width="60" height="7" rx="3.5" fill="#64748B"/>
+    <rect x="30" y="153" width="70" height="16" rx="8" fill="#EBF3FA"/>
+    <text x="65" y="164" font-family="sans-serif" font-size="8" font-weight="bold" fill="#0072CE" text-anchor="middle">MAHASISWA BARU</text>
+  </g>
+
+  <!-- Floating Verified Badge -->
+  <g transform="translate(60, 220)" filter="url(#floatShadow)">
+    <rect x="0" y="0" width="140" height="54" rx="27" fill="#FFFFFF"/>
+    <circle cx="27" cy="27" r="18" fill="#10B981"/>
+    <path d="M20 27 L25 32 L34 22" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="54" y="24" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Status Resmi</text>
+    <text x="54" y="38" font-family="sans-serif" font-size="9" fill="#64748B">100% Terverifikasi</text>
+  </g>
+</svg>

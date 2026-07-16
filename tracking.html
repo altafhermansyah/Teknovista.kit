@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lacak Status Pesanan — TEKNOVISTA.KIT AMERTA 2026</title>
+  <meta name="description" content="Pantau perkembangan pesanan TEKNOVISTA.KIT Kit Penugasan AMERTA Universitas Airlangga 2026 secara real-time." />
+  <meta name="keywords" content="Lacak Pesanan TEKNOVISTA.KIT, AMERTA 2026, Tracking Order UNAIR" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Existing Site Navbar Structure)
+       ========================================================================= -->
+  <nav class="navbar" role="navigation" aria-label="Navigasi Utama">
+    <div class="container">
+      <a href="index.html" class="brand-link" aria-label="Beranda TEKNOVISTA.KIT">
+        <span class="font-bold text-primary" style="font-size: 1.15rem; letter-spacing: -0.3px;">TEKNOVISTA<span class="text-accent">.KIT</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#hero-section">Beranda</a></li>
+        <li><a href="index.html#order-section">Pesan Kit</a></li>
+        <li><a href="index.html#faq-section">FAQ</a></li>
+        <li><a href="tracking.html" style="color: var(--accent);">Lacak Pesanan</a></li>
+      </ul>
+      <a href="index.html#order-section" class="btn btn-primary btn-sm">Pesan Kit Sekarang</a>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       HERO SECTION
+       ========================================================================= -->
+  <header class="hero tracking-hero">
+    <div class="container text-center">
+      <div class="badge">
+        <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>TEKNOVISTA.KIT — Real-Time Order Tracking</span>
+      </div>
+      <h1>Lacak Status Pesanan</h1>
+      <p class="subtitle mx-auto">
+        Pantau perkembangan pesanan TEKNOVISTA.KIT Anda secara real-time.
+      </p>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN TRACKING CONTENT
+       ========================================================================= -->
+  <main role="main">
+    <section class="section-padding tracking-section" aria-label="Pencarian Status Pesanan">
+      <div class="container tracking-container">
+        
+        <!-- Tracking Card (Form) -->
+        <div class="tracking-card">
+          <div class="tracking-card-header">
+            <h3>Cek Status Pesanan</h3>
+            <p>Masukkan Order ID dan Nomor WhatsApp yang digunakan saat pemesanan kit atribut.</p>
+          </div>
+
+          <form id="trackingForm" onsubmit="return false;" aria-label="Formulir Lacak Pesanan">
+            <div class="form-group mb-4">
+              <label class="form-label" for="track-order-id">
+                <span>Order ID <span class="required-mark">*</span></span>
+              </label>
+              <input 
+                type="text" 
+                id="track-order-id" 
+                class="form-input" 
+                placeholder="Contoh: AMERTA26-123456" 
+                autocomplete="off" 
+                required 
+              />
+              <div class="error-message" id="error-track-order-id"></div>
+            </div>
+
+            <div class="form-group mb-4">
+              <label class="form-label" for="track-whatsapp">
+                <span>Nomor WhatsApp <span class="required-mark">*</span></span>
+              </label>
+              <input 
+                type="tel" 
+                id="track-whatsapp" 
+                class="form-input" 
+                placeholder="Contoh: 081234567890" 
+                required 
+              />
+              <div class="error-message" id="error-track-whatsapp"></div>
+            </div>
+
+            <div class="form-actions mt-4">
+              <button type="submit" class="btn btn-primary btn-lg w-100" id="btnTrackOrder">
+                <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <span>Lacak Pesanan</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Loading State -->
+        <div id="trackingLoadingState" class="tracking-loading-card" style="display: none;" role="status" aria-live="polite">
+          <div class="tracking-spinner"></div>
+          <p class="loading-text font-bold text-primary mt-3">Mencari data pesanan...</p>
+          <p class="loading-subtext text-muted">Mohon tunggu sebentar, sistem sedang memverifikasi data pesanan Anda di database AMERTA 2026.</p>
+        </div>
+
+        <!-- Result / Error Card Container -->
+        <div id="trackingResultContainer" class="tracking-result-container" style="display: none;" aria-live="polite"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER (Existing Site Footer Structure)
+       ========================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>
+            <svg class="lucide-icon" style="margin-right: 6px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            <span>TEKNOVISTA.KIT</span>
+          </h4>
+          <p>
+            Official Order Portal Kit Penugasan AMERTA UNAIR 2026. Badan Eksekutif Mahasiswa Universitas Airlangga bekerjasama dengan Direktorat Kemahasiswaan UNAIR.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Tautan Cepat</h5>
+          <div class="footer-links">
+            <a href="https://unair.ac.id" target="_blank" rel="noopener">Situs Resmi UNAIR</a>
+            <a href="index.html#hero-section">Beranda Portal</a>
+            <a href="index.html#order-section">Pesan Kit</a>
+            <a href="index.html#faq-section">FAQ</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Bantuan &amp; Layanan</h5>
+          <div class="footer-links">
+            <a href="index.html#faq-section">Pertanyaan FAQ</a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp Helpdesk</a>
+            <a href="mailto:amerta2026@unair.ac.id">amerta2026@unair.ac.id</a>
+            <span>Gedung Student Center Kampus C UNAIR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 TEKNOVISTA.KIT — Official Order Portal Kit Penugasan AMERTA Universitas Airlangga 2026. Hak Cipta Dilindungi Undang-Undang.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container" role="alert" aria-live="assertive"></div>
+
+  <!-- Modular JavaScript Dependencies -->
+  <script src="js/constants.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/services/trackingService.js"></script>
+  <script src="js/tracking.js"></script>
+</body>
+</html>
