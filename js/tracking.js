@@ -447,7 +447,7 @@ function renderSuccessCard(data) {
           <div class="special-content">
             <h5>Status Pesanan: ${sp.title}</h5>
             <p>${sp.desc}</p>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-secondary btn-sm help-btn">
+            <a href="https://wa.me/62881036633600" target="_blank" rel="noopener" class="btn btn-secondary btn-sm help-btn">
               ${LUCIDE_ICONS.messageCircle}
               <span>Hubungi Admin</span>
             </a>
@@ -560,7 +560,7 @@ function renderSuccessCard(data) {
             <span class="help-title font-bold text-main">Need help?</span>
             <span class="help-subtitle text-muted">If your order appears incorrect or has not changed for several days, please contact the committee.</span>
           </div>
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-secondary btn-sm help-btn">
+          <a href="https://wa.me/6285640936728" target="_blank" rel="noopener" class="btn btn-secondary btn-sm help-btn">
             ${LUCIDE_ICONS.messageCircle}
             <span>Message Admin</span>
           </a>
@@ -597,7 +597,7 @@ function renderErrorCard(errorMessage) {
           ${LUCIDE_ICONS.rotateCcw}
           <span>Coba Lagi</span>
         </button>
-        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+        <a href="https://wa.me/62881036633600" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
           ${LUCIDE_ICONS.messageCircle}
           <span>Hubungi Admin</span>
         </a>

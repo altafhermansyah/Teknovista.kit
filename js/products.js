@@ -38,10 +38,10 @@ const productsList = [
 const bundlePackage = {
   id: 'bundle-package',
   name: 'Bundle Package Lengkap AMERTA 2026',
-  price: 35000, // Regular total = 35.000 (Hemat 15.000)
-  originalPrice: 50000,
-  savings: 15000,
-  desc: 'Paket lengkap seluruh atribut AMERTA 2026 (Booklet, ID Card, Lembar Hymne & Mars Universitas Airlangga) dengan harga spesial hemat Rp15.000.',
+  price: 35000, // Regular total = 35.000 (Hemat 3.000)
+  originalPrice: 38000,
+  savings: 3000,
+  desc: 'Paket lengkap seluruh atribut AMERTA 2026 (Booklet, ID Card, Lembar Hymne & Mars Universitas Airlangga) dengan harga spesial.',
   image: 'assets/products/bundle-package.svg',
   includes: ['Booklet', 'id-card', 'lembar-hymne']
 };

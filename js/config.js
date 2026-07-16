@@ -9,7 +9,7 @@ const APP_CONFIG = {
   currency: 'IDR',
   locale: 'id-ID',
   deadlineTimestamp: new Date('2026-07-25T23:59:59+07:00').getTime(),
-  adminWhatsapp: '62881036633600',
+  adminWhatsapp: '6285640936728',
   qrisImage: 'assets/images/qris_fix.jpeg',
   bankAccounts: [
     { bankName: 'Bank Mandiri', accountNumber: '141-00-1029384-7', accountHolder: 'AMERTA UNAIR' },
