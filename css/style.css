@@ -1047,19 +1047,23 @@ ul, ol {
 }
 
 .select-thumb {
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 150px;
   border-radius: var(--radius-sm);
   background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 6px;
+  padding: 8px;
+  border: 1px solid rgba(0, 59, 115, 0.06);
 }
 
 .select-thumb img {
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .select-details {
@@ -1085,7 +1089,7 @@ ul, ol {
   margin-top: 6px;
   line-height: 1.45;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2486,6 +2490,14 @@ ul, ol {
   margin-top: 2px;
 }
 
+@media (max-width: 1023px) {
+  .select-thumb {
+    width: 104px;
+    height: 135px;
+    padding: 7px;
+  }
+}
+
 @media (max-width: 767px) {
   .selection-grid {
     grid-template-columns: 1fr;
@@ -2496,8 +2508,9 @@ ul, ol {
     gap: 14px;
   }
   .select-thumb {
-    width: 60px;
-    height: 60px;
+    width: 94px;
+    height: 125px;
+    padding: 6px;
   }
 }
 
@@ -2507,8 +2520,9 @@ ul, ol {
     gap: 12px;
   }
   .select-thumb {
-    width: 52px;
-    height: 52px;
+    width: 82px;
+    height: 110px;
+    padding: 6px;
   }
   .select-checkbox {
     width: 24px;
