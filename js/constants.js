@@ -13,7 +13,7 @@ const STORAGE_KEY = 'AMERTA_2026_ORDER_STATE';
 const STORAGE_VERSION = 'v1.2';
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 
 const STATUS_DRAFT = 'DRAFT';
 const STATUS_PENDING_VERIFICATION = 'VERIFICATION_PENDING';

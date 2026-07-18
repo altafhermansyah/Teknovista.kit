@@ -497,7 +497,7 @@ const renderSuccessPage = () => {
     btnWa.onclick = () => {
       const p = appState.participant;
       const msg = encodeURIComponent(
-        `Halo Admin AMERTA UNAIR 2026,\n\nSaya ingin mengonfirmasi pesanan kit penugasan saya:\n` +
+        `Halo Admin Teknovista.kit,\n\nSaya ingin mengonfirmasi pesanan kit penugasan saya:\n` +
         `• Order ID: *${appState.order.orderId}*\n` +
         `• Nama: ${p.nama}\n` +
         `• NIM: ${p.nim}\n` +

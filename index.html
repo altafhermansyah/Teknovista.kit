@@ -248,7 +248,7 @@
                       <span>Alamat Domisili Surabaya / Kos (Opsional)</span>
                     </label>
                     <input type="text" id="input-alamat" class="form-input" placeholder="Contoh: Jl. Dharmawangsa Dalam No. 14" />
-                    <div class="error-message" style="min-height: 18px;"></div>
+                    <div class="error-message" id="error-input-alamat"></div>
                   </div>
                 </div>
               </form>
@@ -300,10 +300,10 @@
                     <div class="upload-icon">📤</div>
                     <h5>Tarik &amp; Lepas File Bukti Pembayaran</h5>
                     <p>Atau klik untuk memilih dari perangkat Anda</p>
-                    <p style="font-size:0.75rem; color:var(--text-light); margin-top:8px;">Format didukung: JPG, PNG, WEBP, atau PDF (Maks. 5 MB)</p>
+                    <p style="font-size:0.75rem; color:var(--text-light); margin-top:8px;">Format didukung: JPG, PNG, atau WEBP (Maks. 5 MB)</p>
                   </div>
 
-                  <input type="file" id="proofFileInput" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none;" />
+                  <input type="file" id="proofFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;" />
 
                   <!-- File Preview Container -->
                   <div class="file-preview-box" id="filePreviewContainer" style="display:none;">
@@ -370,7 +370,7 @@
                 <p>Terima kasih ksatria Airlangga! Pesanan Anda telah diterima oleh sistem dan sedang menunggu verifikasi oleh panitia resmi AMERTA UNAIR 2026. Jangan lupa konfirmasi pesanan kamu ke admin serta simpan nomor orderan kalian, Ya!</p>
 
                 <div class="order-id-card">
-                  <div class="order-id-label">Nomor Nomor Pesanan / Order ID</div>
+                  <div class="order-id-label">Nomor Pesanan / Order ID</div>
                   <div class="order-id-value" id="successOrderIdDisplay">AMERTA26-000000</div>
                   <button type="button" class="btn btn-secondary btn-sm" id="btnCopyOrderId">
                     <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>

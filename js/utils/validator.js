@@ -3,41 +3,212 @@
  * Senior Frontend Architecture — Real-time Custom Validation
  */
 
+const startsWithFormula = (value) =>
+  /^[=+\-@]/.test(String(value).trim());
+
 const validationRules = {
   nama: {
-    validate: (val) => val.trim().length >= 3,
-    errorMsg: 'Nama lengkap minimal 3 karakter'
+    validate: (val) => {
+      const value = String(val).trim();
+
+      if (value.length < 3) {
+        return {
+          isValid: false,
+          errorMsg: "Nama lengkap minimal 3 karakter."
+        };
+      }
+
+      if (value.length > 100) {
+        return {
+          isValid: false,
+          errorMsg: "Nama lengkap maksimal 100 karakter."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nama mengandung format yang tidak diperbolehkan."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   },
+
   nim: {
-    validate: (val) => /^[0-9]{9,15}$/.test(val.trim()),
-    errorMsg: 'NIM harus berupa angka 9-15 digit'
+    validate: (val) => {
+      const value = String(val).trim();
+
+      if (!/^[0-9]{9,15}$/.test(value)) {
+        return {
+          isValid: false,
+          errorMsg: "NIM harus berupa angka 9–15 digit."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "NIM mengandung format yang tidak diperbolehkan."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   },
+
   fakultas: {
-    validate: (val) => val.trim() !== '',
-    errorMsg: 'Silakan pilih Fakultas Anda'
+    validate: (val) => {
+      const value = String(val).trim();
+
+      if (value === "") {
+        return {
+          isValid: false,
+          errorMsg: "Silakan pilih Fakultas Anda."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nama fakultas tidak valid."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   },
+
   garuda: {
-    validate: (val) => /^[0-9]+$/.test(val.trim()),
-    errorMsg: 'Nomor Garuda harus berupa angka'
+    validate: (val) => {
+      const value = String(val).trim();
+
+      if (!/^[0-9]+$/.test(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor Garuda harus berupa angka."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor Garuda tidak valid."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   },
+
   ksatria: {
-    validate: (val) => /^[0-9]+$/.test(val.trim()),
-    errorMsg: 'Nomor Ksatria harus berupa angka'
+    validate: (val) => {
+      const value = String(val).trim();
+
+      if (!/^[0-9]+$/.test(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor Ksatria harus berupa angka."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor Ksatria tidak valid."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   },
+
   whatsapp: {
-    validate: (val) => /^(\+62|62|0)8[1-9][0-9]{6,12}$/.test(val.trim().replace(/\s+/g, '')),
-    errorMsg: 'Nomor WhatsApp tidak valid (contoh: 081234567890)'
+    validate: (val) => {
+      const value = String(val).trim().replace(/\s+/g, "");
+
+      if (!/^(\+62|62|0)8[1-9][0-9]{6,12}$/.test(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor WhatsApp tidak valid (contoh: 081234567890)."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Nomor WhatsApp tidak valid."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
+  },
+
+  alamat: {
+    validate: (val) => {
+      const value = String(val).trim();
+
+      // Alamat bersifat opsional
+      if (value === "") {
+        return {
+          isValid: true,
+          errorMsg: ""
+        };
+      }
+
+      if (value.length > 255) {
+        return {
+          isValid: false,
+          errorMsg: "Alamat maksimal 255 karakter."
+        };
+      }
+
+      if (startsWithFormula(value)) {
+        return {
+          isValid: false,
+          errorMsg: "Alamat mengandung format yang tidak diperbolehkan."
+        };
+      }
+
+      return {
+        isValid: true,
+        errorMsg: ""
+      };
+    }
   }
 };
 
 const validateField = (fieldName, val) => {
   const rule = validationRules[fieldName];
-  if (!rule) return { isValid: true };
-  const isValid = rule.validate(val);
-  return {
-    isValid,
-    errorMsg: isValid ? '' : rule.errorMsg
-  };
+
+  if (!rule) {
+    return {
+      isValid: true,
+      errorMsg: ""
+    };
+  }
+
+  return rule.validate(val);
 };
 
 const updateFieldUI = (inputEl, isValid, errorMsg) => {
@@ -62,12 +233,12 @@ const setupParticipantFormValidation = () => {
   Object.keys(validationRules).forEach((fieldName) => {
     const inputEl = document.getElementById(`input-${fieldName}`);
     if (!inputEl) return;
-    
+
     // Set restored value if any
     if (appState.participant[fieldName]) {
       inputEl.value = appState.participant[fieldName];
     }
-    
+
     const runValidation = () => {
       if (fieldName === 'garuda' || fieldName === 'ksatria') {
         const cleaned = inputEl.value.replace(/[^0-9]/g, '');
@@ -81,26 +252,17 @@ const setupParticipantFormValidation = () => {
         appState.participant.kelompok = (typeof getCombinedKelompok === 'function')
           ? getCombinedKelompok(appState.participant)
           : (appState.participant.garuda && appState.participant.ksatria
-              ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
-              : '');
+            ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
+            : '');
       }
       const res = validateField(fieldName, val);
       updateFieldUI(inputEl, res.isValid, res.errorMsg);
       saveStateToStorage();
     };
-    
+
     inputEl.addEventListener('input', runValidation);
     inputEl.addEventListener('blur', runValidation);
   });
-  
-  const alamatEl = document.getElementById('input-alamat');
-  if (alamatEl) {
-    if (appState.participant.alamat) alamatEl.value = appState.participant.alamat;
-    alamatEl.addEventListener('input', () => {
-      appState.participant.alamat = alamatEl.value;
-      saveStateToStorage();
-    });
-  }
 };
 
 const isParticipantFormValid = () => {
@@ -122,7 +284,7 @@ const isParticipantFormValid = () => {
   appState.participant.kelompok = (typeof getCombinedKelompok === 'function')
     ? getCombinedKelompok(appState.participant)
     : (appState.participant.garuda && appState.participant.ksatria
-        ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
-        : '');
+      ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
+      : '');
   return allValid;
 };
