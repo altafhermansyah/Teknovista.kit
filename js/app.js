@@ -351,7 +351,7 @@ const renderConfirmationReview = () => {
     prodHtml += `
       <div class="review-row">
         <span class="label">Paket Dipilih</span>
-        <span class="val text-accent">Bundle Package Lengkap (4 Atribut)</span>
+        <span class="val text-accent">Bundle Package Lengkap (3 Atribut)</span>
       </div>
     `;
   } else {
@@ -415,6 +415,11 @@ const submitOrderToBackend = async () => {
   }
 
   // 2. Susun Payload Akhir (TANPA data base64/file, karena diurus oleh api.js)
+  const selectedProductIds = calc.isBundle
+  ? [bundlePackage.id]
+  : Object.keys(appState.products.selected)
+      .filter(id => appState.products.selected[id] > 0);
+
   const orderPayload = {
     orderId: orderId,
     nama: appState.participant.nama,
@@ -423,6 +428,7 @@ const submitOrderToBackend = async () => {
     kelompok: getCombinedKelompok(appState.participant),
     whatsapp: appState.participant.whatsapp,
     alamat: appState.participant.alamat,
+    productIds: selectedProductIds,
     produkDetail: produkDetail,
     totalHarga: calc.total
   };
