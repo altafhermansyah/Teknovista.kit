@@ -2,7 +2,7 @@
 
 Official order placement and tracking web portal built for Universitas Airlangga 2026 student assignment kits.
 
-TEKNOVISTA.KIT is a production-grade single-page application that enables new students to order official university assignment kits (`Buku Panduan`, `ID Card & Lanyard`, `Lembar Hymne`, and `Janji Ksatria`). It handles the entire checkout journey through a stateful multi-step wizard, client-side payment proof processing, and real-time order tracking without relying on third-party frontend frameworks or build steps.
+TEKNOVISTA.KIT is a production-grade single-page application that enables new students to order official university assignment kits (`Buku Panduan`, `ID Card & Lanyard`, `Lembar Hymne and mars Universitas Airlangga`). It handles the entire checkout journey through a stateful multi-step wizard, client-side payment proof processing, and real-time order tracking without relying on third-party frontend frameworks or build steps.
 
 The platform operates on a vanilla web stack integrated directly with Google Cloud services via Google Apps Script. It serves as a serverless, zero-maintenance order portal where submissions are automatically recorded in Google Sheets, payment verification files are compressed and uploaded to Google Drive, and instant notifications are dispatched to administrative channels.
 

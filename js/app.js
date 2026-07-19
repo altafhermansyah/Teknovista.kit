@@ -430,7 +430,8 @@ const submitOrderToBackend = async () => {
     alamat: appState.participant.alamat,
     productIds: selectedProductIds,
     produkDetail: produkDetail,
-    totalHarga: calc.total
+    totalHarga: calc.total,
+    timestamp: Date.now()
   };
 
   try {

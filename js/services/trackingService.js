@@ -28,7 +28,8 @@ const TrackingService = {
         const payload = {
             action: "track",
             orderId: String(orderId).trim(),
-            whatsapp: String(whatsapp).trim()
+            whatsapp: String(whatsapp).trim(),
+            timestamp: Date.now()
         };
 
         console.group("🔎 [TRACKING SERVICE]");
