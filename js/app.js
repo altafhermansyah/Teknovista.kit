@@ -633,7 +633,7 @@ window.resetAndGoHome = () => {
 // ============================================================================
 // 6. WIZARD STEP CONTROLLER
 // ============================================================================
-const goToStep = (stepNum) => {
+const goToStep = (stepNum, shouldScroll = true) => {
   if (stepNum > appState.ui.currentStep) {
     if (appState.ui.currentStep === STEP_PRODUCT) {
       const calc = calculateOrderTotal();
@@ -688,8 +688,10 @@ const goToStep = (stepNum) => {
     renderConfirmationReview();
   }
 
-  const wizardEl = document.getElementById('order-section');
-  if (wizardEl) wizardEl.scrollIntoView({ behavior: 'smooth' });
+  if (shouldScroll) {
+    const wizardEl = document.getElementById('order-section');
+    if (wizardEl) wizardEl.scrollIntoView({ behavior: 'smooth' });
+  }
 
   for (let i = 1; i <= 5; i++) {
     const cEl = document.getElementById(`controlsStep${i}`);
@@ -782,8 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btnSubmitOrder')?.addEventListener('click', submitOrderToBackend);
 
   if (appState.ui.currentStep >= STEP_PRODUCT && appState.ui.currentStep <= STEP_CONFIRM) {
-    goToStep(appState.ui.currentStep);
+    goToStep(appState.ui.currentStep, false);
   } else {
-    goToStep(STEP_PRODUCT);
+    goToStep(STEP_PRODUCT, false);
   }
 });

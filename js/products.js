@@ -10,21 +10,21 @@ const productsList = [
     name: 'Booklet AMERTA 2026',
     price: 19000,
     desc: 'Booklet AMERTA 2026 penunjang kegiatan kalian selama PKKMB Universitas Airlangga.',
-    image: 'assets/products/Booklet_Amerta.webp'
+    image: 'assets/products/Booklet.webp'
   },
   {
     id: 'id-card',
     name: 'ID Card',
     price: 14000,
     desc: 'ID card identitas mahasiswa baru lengkap dengan tali.',
-    image: 'assets/products/ID_Card.webp'
+    image: 'assets/products/id_Card1.webp'
   },
   {
     id: 'lembar-hymne',
     name: 'Lembar Hymne & Mars Universitas Airlangga',
     price: 5000,
     desc: 'Cetakan lirik Hymne & Mars Universitas Airlangga.',
-    image: 'assets/products/Hymne_Airlangga.webp'
+    image: 'assets/products/Hymne_Unair.webp'
   }
   // {
   //   id: 'janji-ksatria',
