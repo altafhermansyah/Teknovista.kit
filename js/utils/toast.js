@@ -23,8 +23,9 @@ const showToast = (message, type = 'info') => {
   
   toast.innerHTML = `
     <span style="font-size: 1.25rem;">${iconHtml}</span>
-    <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);">${message}</span>
+    <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);"></span>
   `;
+  toast.lastElementChild.textContent = message;
   
   container.appendChild(toast);
   

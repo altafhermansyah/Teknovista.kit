@@ -137,7 +137,8 @@ function showToast(message, type = "success") {
   toast.className = `toast ${type}`;
 
   const icon = type === "success" ? LUCIDE_ICONS.circleCheck : (type === "error" ? LUCIDE_ICONS.alertCircle : LUCIDE_ICONS.info);
-  toast.innerHTML = `${icon}<span>${message}</span>`;
+  toast.innerHTML = `${icon}<span></span>`;
+  toast.lastElementChild.textContent = message;
   container.appendChild(toast);
 
   setTimeout(() => {
@@ -520,7 +521,7 @@ function renderSuccessCard(data) {
           <span class="detail-label">${LUCIDE_ICONS.tag}<span>Order ID</span></span>
           <span class="detail-val" style="display: flex; align-items: center; gap: 8px; justify-content: flex-end; flex-wrap: wrap;">
             <span class="order-id-highlight">${orderId}</span>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="copyTrackingOrderId('${orderId}')" aria-label="Salin Order ID" title="Salin Order ID">
+            <button type="button" class="btn btn-secondary btn-sm copy-order-btn" data-order-id="${orderId}" aria-label="Salin Order ID" title="Salin Order ID">
               ${LUCIDE_ICONS.copy}
               <span>Salin</span>
             </button>
@@ -571,6 +572,16 @@ function renderSuccessCard(data) {
   `;
 
   resultContainer.innerHTML = html;
+  
+  const copyBtn = resultContainer.querySelector('.copy-order-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      if (window.copyTrackingOrderId) {
+        window.copyTrackingOrderId(this.getAttribute('data-order-id'));
+      }
+    });
+  }
+
   resultContainer.style.display = "block";
   resultContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }

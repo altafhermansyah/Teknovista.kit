@@ -11,7 +11,7 @@ const fileToBase64 = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = error => reject(error);
+        reader.onerror = () => reject(new Error("Gagal membaca file bukti pembayaran."));
     });
 };
 
@@ -47,9 +47,9 @@ const compressImage = (file) => {
                 const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7).split(',')[1];
                 resolve(compressedBase64);
             };
-            img.onerror = error => reject(error);
+            img.onerror = () => reject(new Error("Format gambar tidak valid atau file rusak. Silakan unggah JPG, PNG, atau WEBP."));
         };
-        reader.onerror = error => reject(error);
+        reader.onerror = () => reject(new Error("Gagal membaca file bukti pembayaran."));
     });
 };
 
@@ -58,7 +58,6 @@ const ApiService = {
      * Mengirim payload pesanan dan file bukti transfer ke Google Apps Script
      */
     submitOrder: async (orderPayload, fileObj) => {
-        console.group('🚀 [API SERVICE] Memproses & Mengirim Pesanan');
         
         let finalBase64 = "";
         let finalType = fileObj.type;
@@ -70,12 +69,10 @@ const ApiService = {
 
         // --- 2. FITUR KOMPRESI & BASE64 ---
         if (fileObj.type.startsWith('image/')) {
-            console.log('Sedang mengompresi gambar untuk mempercepat upload...');
             finalBase64 = await compressImage(fileObj);
             finalType = 'image/jpeg'; // Paksa ke JPEG karena hasil output canvas
             finalName += ".jpg"; // Tambahkan ekstensi gambar
         } else {
-            console.log('File adalah PDF, melewati tahap kompresi...');
             finalBase64 = await fileToBase64(fileObj);
             // Ambil ekstensi asli (misal: .pdf)
             const ext = fileObj.name.split('.').pop();
@@ -89,9 +86,6 @@ const ApiService = {
             fileType: finalType,
             fileData: finalBase64
         };
-
-        console.log('Target Endpoint:', APP_CONFIG.gasApiUrl);
-        console.log('File Name Output:', finalName);
         
         try {
             // --- 4. KIRIM KE GOOGLE APPS SCRIPT ---
@@ -106,12 +100,10 @@ const ApiService = {
                 throw new Error(result.message || 'Terjadi kesalahan pada server Google.');
             }
             
-            console.groupEnd();
             return result;
 
         } catch (error) {
             console.error("API Submission Error:", error);
-            console.groupEnd();
             throw error; 
         }
     }

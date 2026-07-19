@@ -256,7 +256,7 @@ const setupPaymentStep = () => {
 
 const handleFileUpload = (file) => {
   if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-    showToast('Format file tidak didukung! Unggah JPG, PNG, atau PDF.', 'error');
+    showToast('Format file tidak didukung! Unggah JPG, PNG, atau WEBP.', 'error');
     return;
   }
 
@@ -303,9 +303,18 @@ const renderUploadedFilePreview = () => {
   const sizeEl = document.getElementById('previewFileSize');
 
   if (thumbEl) {
-    thumbEl.innerHTML = isImg
-      ? `<img src="${f.dataUrl}" alt="Proof" />`
-      : `<span style="font-size:1.5rem;">📄</span>`;
+    thumbEl.innerHTML = '';
+    if (isImg) {
+      const imgEl = document.createElement('img');
+      imgEl.src = f.dataUrl;
+      imgEl.alt = 'Proof';
+      thumbEl.appendChild(imgEl);
+    } else {
+      const iconSpan = document.createElement('span');
+      iconSpan.style.fontSize = '1.5rem';
+      iconSpan.textContent = '📄';
+      thumbEl.appendChild(iconSpan);
+    }
   }
   if (nameEl) nameEl.textContent = f.name;
   if (sizeEl) sizeEl.textContent = f.size;
@@ -337,13 +346,19 @@ const renderConfirmationReview = () => {
 
   const p = appState.participant;
   partBox.innerHTML = `
-    <div class="review-row"><span class="label">Nama Lengkap</span><span class="val">${p.nama || '-'}</span></div>
-    <div class="review-row"><span class="label">NIM</span><span class="val">${p.nim || '-'}</span></div>
-    <div class="review-row"><span class="label">Fakultas</span><span class="val">${p.fakultas || '-'}</span></div>
-    <div class="review-row"><span class="label">Kelompok</span><span class="val">${getCombinedKelompok(p) || '-'}</span></div>
-    <div class="review-row"><span class="label">WhatsApp</span><span class="val">${p.whatsapp || '-'}</span></div>
-    <div class="review-row"><span class="label">Alamat</span><span class="val">${p.alamat || '-'}</span></div>
+    <div class="review-row"><span class="label">Nama Lengkap</span><span class="val" id="reviewValNama"></span></div>
+    <div class="review-row"><span class="label">NIM</span><span class="val" id="reviewValNim"></span></div>
+    <div class="review-row"><span class="label">Fakultas</span><span class="val" id="reviewValFakultas"></span></div>
+    <div class="review-row"><span class="label">Kelompok</span><span class="val" id="reviewValKelompok"></span></div>
+    <div class="review-row"><span class="label">WhatsApp</span><span class="val" id="reviewValWa"></span></div>
+    <div class="review-row"><span class="label">Alamat</span><span class="val" id="reviewValAlamat"></span></div>
   `;
+  document.getElementById('reviewValNama').textContent = p.nama || '-';
+  document.getElementById('reviewValNim').textContent = p.nim || '-';
+  document.getElementById('reviewValFakultas').textContent = p.fakultas || '-';
+  document.getElementById('reviewValKelompok').textContent = getCombinedKelompok(p) || '-';
+  document.getElementById('reviewValWa').textContent = p.whatsapp || '-';
+  document.getElementById('reviewValAlamat').textContent = p.alamat || '-';
 
   const calc = calculateOrderTotal();
   let prodHtml = '';
@@ -379,9 +394,11 @@ const renderConfirmationReview = () => {
   const fName = appState.payment.proofFile ? appState.payment.proofFile.name : 'Belum diunggah';
 
   payBox.innerHTML = `
-    <div class="review-row"><span class="label">Metode Pembayaran</span><span class="val">${payMethodName}</span></div>
-    <div class="review-row"><span class="label">File Bukti Pembayaran</span><span class="val">${fName}</span></div>
+    <div class="review-row"><span class="label">Metode Pembayaran</span><span class="val" id="reviewValPayMethod"></span></div>
+    <div class="review-row"><span class="label">File Bukti Pembayaran</span><span class="val" id="reviewValFileName"></span></div>
   `;
+  document.getElementById('reviewValPayMethod').textContent = payMethodName;
+  document.getElementById('reviewValFileName').textContent = fName;
 };
 
 // ============================================================================
@@ -471,13 +488,17 @@ const renderSuccessPage = () => {
 
   summaryEl.innerHTML = `
     <div class="review-box" style="text-align:left; max-width:500px; margin:0 auto 28px;">
-      <div class="review-row"><span class="label">Nama Pemesan</span><span class="val">${appState.participant.nama}</span></div>
-      <div class="review-row"><span class="label">NIM</span><span class="val">${appState.participant.nim}</span></div>
-      <div class="review-row"><span class="label">Produk Dipesan</span><span class="val">${prodName}</span></div>
-      <div class="review-row"><span class="label">Total Dibayar</span><span class="val text-accent font-bold">${formatIDR(calc.total)}</span></div>
+      <div class="review-row"><span class="label">Nama Pemesan</span><span class="val" id="successValNama"></span></div>
+      <div class="review-row"><span class="label">NIM</span><span class="val" id="successValNim"></span></div>
+      <div class="review-row"><span class="label">Produk Dipesan</span><span class="val" id="successValProduk"></span></div>
+      <div class="review-row"><span class="label">Total Dibayar</span><span class="val text-accent font-bold" id="successValTotal"></span></div>
       <div class="review-row"><span class="label">Status Pesanan</span><span class="val badge" style="margin:0;">Menunggu Verifikasi Admin</span></div>
     </div>
   `;
+  document.getElementById('successValNama').textContent = appState.participant.nama;
+  document.getElementById('successValNim').textContent = appState.participant.nim;
+  document.getElementById('successValProduk').textContent = prodName;
+  document.getElementById('successValTotal').textContent = formatIDR(calc.total);
 
   const btnCopy = document.getElementById('btnCopyOrderId');
   if (btnCopy) {
@@ -648,7 +669,7 @@ const goToStep = (stepNum, shouldScroll = true) => {
     }
     if (appState.ui.currentStep === STEP_PAYMENT) {
       if (!appState.payment.proofFile) {
-        showToast('Mohon unggah foto/PDF bukti pembayaran Anda!', 'error');
+        showToast('Mohon unggah foto bukti pembayaran Anda!', 'error');
         return;
       }
     }
@@ -766,7 +787,6 @@ const setupFaqAccordion = () => {
 // 9. DOM CONTENT LOADED INITIALIZER
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(`🏛️ ${APP_CONFIG.appName} (${APP_CONFIG.version}) Initialized`);
 
   restoreStateFromStorage();
   startCountdownTimer();

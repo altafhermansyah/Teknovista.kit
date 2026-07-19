@@ -66,7 +66,6 @@ const restoreStateFromStorage = () => {
     
     // Check storage version compatibility
     if (parsed.version && parsed.version !== STORAGE_VERSION) {
-      console.info('Storage version mismatch. Resetting stale state.');
       localStorage.removeItem(STORAGE_KEY);
       return;
     }

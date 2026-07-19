@@ -32,10 +32,6 @@ const TrackingService = {
             timestamp: Date.now()
         };
 
-        console.group("🔎 [TRACKING SERVICE]");
-        console.log("Endpoint :", APP_CONFIG.gasApiUrl);
-        console.log("Payload  :", payload);
-
         try {
 
             const response = await fetch(APP_CONFIG.gasApiUrl, {
@@ -51,22 +47,17 @@ const TrackingService = {
 
             const result = await response.json();
 
-            console.log("Response :", result);
-
             if (result.status !== "success") {
                 throw new Error(
                     result.message || "Pesanan tidak ditemukan."
                 );
             }
 
-            console.groupEnd();
-
             return result.data;
 
         } catch (error) {
 
             console.error("[TRACKING SERVICE]", error);
-            console.groupEnd();
 
             throw error;
         }
