@@ -8,7 +8,7 @@ const APP_CONFIG = {
   version: '1.2.0-PROD',
   currency: 'IDR',
   locale: 'id-ID',
-  deadlineTimestamp: new Date('2026-07-25T23:59:59+07:00').getTime(),
+  deadlineTimestamp: new Date('2026-07-29T23:59:59+07:00').getTime(),
   adminWhatsapp: '6285640936728',
   qrisImage: 'assets/images/qris_fix.jpeg',
   bankAccounts: [
