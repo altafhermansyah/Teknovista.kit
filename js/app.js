@@ -44,7 +44,7 @@ const getCombinedKelompok = (p = appState.participant) => {
   if (p.garuda && p.ksatria) {
     return `Garuda ${p.garuda} / Ksatria ${p.ksatria}`;
   }
-  return p.kelompok || '';
+  return p.kelompok || 'Belum Dibagikan';
 };
 window.getCombinedKelompok = getCombinedKelompok;
 
@@ -595,7 +595,7 @@ const resetApplicationState = () => {
   const formEl = document.getElementById('formParticipant') || document.getElementById('participantForm');
   if (formEl) formEl.reset();
 
-  const inputIds = ['input-nama', 'input-nim', 'input-fakultas', 'input-garuda', 'input-ksatria', 'input-whatsapp', 'input-alamat'];
+  const inputIds = ['input-nama', 'input-nim', 'input-fakultas', 'input-whatsapp', 'input-alamat'];
   inputIds.forEach(id => {
     const inputEl = document.getElementById(id);
     if (inputEl) {
@@ -604,7 +604,7 @@ const resetApplicationState = () => {
     }
   });
 
-  const errorIds = ['error-input-nama', 'error-input-nim', 'error-input-fakultas', 'error-input-garuda', 'error-input-ksatria', 'error-input-whatsapp'];
+  const errorIds = ['error-input-nama', 'error-input-nim', 'error-input-fakultas', 'error-input-whatsapp'];
   errorIds.forEach(id => {
     const errEl = document.getElementById(id);
     if (errEl) {

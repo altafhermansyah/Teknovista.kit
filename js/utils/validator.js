@@ -89,56 +89,6 @@ const validationRules = {
     }
   },
 
-  garuda: {
-    validate: (val) => {
-      const value = String(val).trim();
-
-      if (!/^[0-9]+$/.test(value)) {
-        return {
-          isValid: false,
-          errorMsg: "Nomor Garuda harus berupa angka."
-        };
-      }
-
-      if (startsWithFormula(value)) {
-        return {
-          isValid: false,
-          errorMsg: "Nomor Garuda tidak valid."
-        };
-      }
-
-      return {
-        isValid: true,
-        errorMsg: ""
-      };
-    }
-  },
-
-  ksatria: {
-    validate: (val) => {
-      const value = String(val).trim();
-
-      if (!/^[0-9]+$/.test(value)) {
-        return {
-          isValid: false,
-          errorMsg: "Nomor Ksatria harus berupa angka."
-        };
-      }
-
-      if (startsWithFormula(value)) {
-        return {
-          isValid: false,
-          errorMsg: "Nomor Ksatria tidak valid."
-        };
-      }
-
-      return {
-        isValid: true,
-        errorMsg: ""
-      };
-    }
-  },
-
   whatsapp: {
     validate: (val) => {
       const value = String(val).trim().replace(/\s+/g, "");
@@ -234,27 +184,14 @@ const setupParticipantFormValidation = () => {
     const inputEl = document.getElementById(`input-${fieldName}`);
     if (!inputEl) return;
 
-    // Set restored value if any
     if (appState.participant[fieldName]) {
       inputEl.value = appState.participant[fieldName];
     }
 
     const runValidation = () => {
-      if (fieldName === 'garuda' || fieldName === 'ksatria') {
-        const cleaned = inputEl.value.replace(/[^0-9]/g, '');
-        if (inputEl.value !== cleaned) {
-          inputEl.value = cleaned;
-        }
-      }
       const val = inputEl.value;
       appState.participant[fieldName] = val;
-      if (fieldName === 'garuda' || fieldName === 'ksatria') {
-        appState.participant.kelompok = (typeof getCombinedKelompok === 'function')
-          ? getCombinedKelompok(appState.participant)
-          : (appState.participant.garuda && appState.participant.ksatria
-            ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
-            : '');
-      }
+      appState.participant.kelompok = getCombinedKelompok(appState.participant);
       const res = validateField(fieldName, val);
       updateFieldUI(inputEl, res.isValid, res.errorMsg);
       saveStateToStorage();
@@ -270,21 +207,10 @@ const isParticipantFormValid = () => {
   Object.keys(validationRules).forEach((fieldName) => {
     const inputEl = document.getElementById(`input-${fieldName}`);
     if (!inputEl) return;
-    if (fieldName === 'garuda' || fieldName === 'ksatria') {
-      const cleaned = inputEl.value.replace(/[^0-9]/g, '');
-      if (inputEl.value !== cleaned) {
-        inputEl.value = cleaned;
-      }
-      appState.participant[fieldName] = inputEl.value;
-    }
     const res = validateField(fieldName, inputEl.value);
     updateFieldUI(inputEl, res.isValid, res.errorMsg);
     if (!res.isValid) allValid = false;
   });
-  appState.participant.kelompok = (typeof getCombinedKelompok === 'function')
-    ? getCombinedKelompok(appState.participant)
-    : (appState.participant.garuda && appState.participant.ksatria
-      ? `Garuda ${appState.participant.garuda} / Ksatria ${appState.participant.ksatria}`
-      : '');
+  appState.participant.kelompok = getCombinedKelompok(appState.participant);
   return allValid;
 };
