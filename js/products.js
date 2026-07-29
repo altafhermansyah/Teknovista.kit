@@ -10,14 +10,14 @@ const productsList = [
     name: 'Booklet AMERTA 2026',
     price: 19000,
     desc: 'Booklet AMERTA 2026 penunjang kegiatan kalian selama PKKMB Universitas Airlangga.',
-    image: 'assets/products/Booklet.webp'
+    image: 'assets/products/Booklet2026.webp'
   },
   {
     id: 'id-card',
     name: 'ID Card',
     price: 14000,
     desc: 'ID card identitas mahasiswa baru lengkap dengan tali.',
-    image: 'assets/products/id_Card1.webp'
+    image: 'assets/products/idcard2026.webp'
   },
   {
     id: 'lembar-hymne',
