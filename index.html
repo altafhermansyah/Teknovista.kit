@@ -43,46 +43,23 @@
   <header class="hero" id="hero-section">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="badge">🚀 TEKNOVISTA.KIT — Official Order Portal</div>
+        <div class="badge">TEKNOVISTA.KIT — Official Order Portal</div>
         <h1>Kit Penugasan AMERTA Universitas Airlangga 2026</h1>
         <p class="subtitle">
-          Portal pemesanan atribut wajib dan kelengkapan penugasan (Booklet, ID Card, Lembar Hymne & Mars Universitas Airlangga) bagi seluruh Mahasiswa Baru Universitas Airlangga 2026. Prioritaskan kelengkapan sebelum orientasi dimulai.
+          Portal pemesanan atribut wajib dan kelengkapan penugasan (Booklet, ID Card, Lembar Hymne & Mars Universitas Airlangga) bagi seluruh Mahasiswa Baru Universitas Airlangga 2026.
         </p>
 
-        <!-- Countdown Box — EXTENDED DEADLINE -->
-        <div class="countdown-container" aria-label="Hitung mundur penutupan pemesanan" style="border: 2px solid rgba(245, 158, 11, 0.35); background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(239, 68, 68, 0.06) 100%);">
-          <div class="countdown-header" style="flex-direction: column; gap: 6px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
-              <span style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: white; padding: 3px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; animation: pulse 2s infinite;">🔥 EXTENDED!</span>
-              <span>Kesempatan Terakhir, Ditutup 30 Juli 09.00 WIB</span>
-            </div>
-            <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500;">Batas waktu diperpanjang khusus untuk kamu yang belum sempat order. Jangan lewatkan lagi!</span>
-          </div>
-          <div class="countdown-grid" id="countdownTimerGrid">
-            <div class="countdown-item">
-              <span class="countdown-val" id="cd-days">00</span>
-              <span class="countdown-label">Hari</span>
-            </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-item">
-              <span class="countdown-val" id="cd-hours">00</span>
-              <span class="countdown-label">Jam</span>
-            </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-item">
-              <span class="countdown-val" id="cd-minutes">00</span>
-              <span class="countdown-label">Menit</span>
-            </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-item">
-              <span class="countdown-val" id="cd-seconds">00</span>
-              <span class="countdown-label">Detik</span>
-            </div>
+        <!-- Order Closed Notice -->
+        <div class="countdown-container" aria-label="Masa pemesanan telah berakhir" style="border: 2px solid rgba(239, 68, 68, 0.3); background: linear-gradient(135deg, rgba(239, 68, 68, 0.06) 0%, rgba(107, 114, 128, 0.06) 100%);">
+          <div class="countdown-header" style="flex-direction: column; gap: 8px;">
+            <span style="background: var(--error, #ef4444); color: white; padding: 4px 14px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">PEMESANAN DITUTUP</span>
+            <span style="font-size: 1rem; font-weight: 700; color: var(--text-main);">Periode pemesanan Kit AMERTA 2026 telah berakhir.</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; line-height: 1.5;">Terima kasih kepada seluruh Ksatria Airlangga yang telah melakukan pemesanan. Jika Anda sudah memesan, silakan lacak status pesanan Anda melalui halaman Tracking.</span>
           </div>
         </div>
 
         <div class="hero-actions">
-          <a href="#order-section" class="btn btn-primary btn-lg">Pesan Kit Sekarang</a>
+          <a href="tracking.html" class="btn btn-primary btn-lg">Lacak Status Pesanan</a>
           <a href="#faq-section" class="btn btn-secondary btn-lg">Baca Panduan &amp; FAQ</a>
         </div>
       </div>
@@ -106,8 +83,8 @@
        ========================================================================= -->
   <main>
 
-    <!-- MULTI-STEP ORDER WIZARD SECTION -->
-    <section class="section-padding" id="order-section" aria-label="Formulir Pemesanan Kit AMERTA">
+    <!-- MULTI-STEP ORDER WIZARD SECTION (ORDER CLOSED) -->
+    <section class="section-padding" id="order-section" aria-label="Pemesanan Ditutup" style="display: none;">
       <div class="container">
         <div class="section-header text-center">
           <div class="badge">⚡ Pemesanan Cepat nan Gercep</div>
